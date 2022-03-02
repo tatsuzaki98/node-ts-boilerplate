@@ -96,7 +96,7 @@ start: install
 ##### serve
 .PHONY: serve
 serve: build
-	mv ./nohup.out $(LOG_DIR)
+	if [ -f ./nohup.out ]; then mv ./nohup.out $(LOG_DIR); fi
 	nohup node $(DIST_SERVER) &
 
 ##### インストールしたNodeモジュールを全て削除
